@@ -37,10 +37,9 @@ Il progetto è stato realizzato per mettere alla prova le mie competenze su **Bo
 ![Schermata del 2026-03-18 18-51-03](https://github.com/user-attachments/assets/0bdb6bb1-2315-453a-a388-ce679f9361c9)
 
 ### 🤝 Contatti
-
 Sono aperto a feedback, consigli e opportunità di collaborazione!
 
-    LinkedIn: https://www.linkedin.com/in/cosimo-francesco-di-ruscio
-    Email: cosimof.diruscio@tutamail.com
+**LinkedIn**: https://www.linkedin.com/in/cosimo-francesco-di-ruscio ||
+**Email**: *cosimof.diruscio@tutamail.com*
  
 
