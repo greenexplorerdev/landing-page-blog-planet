@@ -25,9 +25,9 @@ Il progetto è stato realizzato per mettere alla prova le mie competenze su **Bo
 
   
 ### Live demo:
-   - greensync.altervista.org
+   - [greensync.altervista.org](https://greensync.altervista.org)
    - disponibile anche in locale:
-     1.  Clona il repo: `git clone https://github.com/greenexplorerdev/landing-page-blog-planet.git `
+     1.  Clona il repo: ` git clone https://github.com/greenexplorerdev/landing-page-blog-planet.git `
      2.  Apri la cartella in VS Code.
      3.  Usa l'estensione **Live Server** su `index.html`.
        
