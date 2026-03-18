@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="it" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Esplora il mondo con noi" />
+    <meta name="author" content="Cosimo Francesco Di Ruscio" />
+    <title>Ecoblog</title>
+    <!-- installazione con cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- installazione delle icone -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <style>
+      header {
+        height: 85vh;
+        overflow: hidden;
+        background-image: url(./img/conifers-1867371_1920.webp);
+        background-size: cover;
+        background-position: center;
+      }
+
+      button:hover {
+        transform: translate3d(0, -0.125rem, 0);
+      }
+      .nav-link {
+        color: rgb(40, 113, 230);
+        position: relative;
+      }
+      .nav-link:hover {
+        color: rgb(184, 211, 255);
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 2px;
+        background-color: whitesmoke;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      .nav-link:hover::after {
+        transform: scaleY(1);
+      }
+      .navbar-toggler {
+        color: white;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none; /* rimuove il focus ring ppredefinito,quando clicco sul pulsante */
+      }
+
+      .navbar-brand:hover {
+        text-decoration: underline;
+      }
+
+      .greyscale {
+        filter: grayscale(100%);
+      }
+
+      .oceano {
+        background-color: #0077be;
+      }
+    </style>
+  </head>
+  <body>
+    <header id="pagina-homePage">
+      <nav class="navbar navbar-expand-lg bg-transparent">
+        <div class="container-fluid d-flex">
+          <a class="navbar-brand text-success" href="#pagina-homePage">
+            In giro per il Mondo
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6"
+                alt="Toggle icon"
+                style="width: 24px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="#homePage"
+                  onclick="navigateTo('homePage')"
+                >
+                  Home</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  onclick="navigateTo('suDiNoi')"
+                  href="#suDiNoi"
+                  >Su di Noi</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  onclick="navigateTo('contattaci')"
+                  href="#contattaci"
+                  >Contattaci</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="container container-fluid d-flex justify-content-center align-items-center"
+        style="height: 70vh"
+      >
+        <div class="row">
+          <div class="col-12 text-center">
+            <h3 class="text-white fs-2">
+              Siediti e preparati a conoscere il pianeta che abiti!
+            </h3>
+            <p class="text-info fs-4">
+              Immergiti in un viaggio che ti farà conoscere i luoghi della
+              nostra amata terra attraverso le nostre esperienze!
+            </p>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Andiamo ad Esplorarlo!
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-success text-light">
+                  <div class="modal-header">
+                    <h1
+                      class="modal-title fs-5 text-center"
+                      id="exampleModalLabel"
+                    >
+                      Hei viaggiatore/trice!
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    Grazie di cuore per il tempo che ci dedicherai, spero che i
+                    contenuti che vedrai saranno di tuo gradimento! <br />
+                    buona lettura ❤️
+                  </div>
+                  <div class="modal-footer justify-content-center">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                      onclick="navigateTo('articoliCard')"
+                    >
+                      <strong><u>Grazie❤️</u></strong>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="position-relative">
+      <section
+        id="pagina-articoliCard"
+        class="d-none d-flex align-items-center"
+      >
+        <div class="container p-5 mt-5 text-center">
+          <div class="row">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center">
+                <li
+                  class="breadcrumb-item"
+                  type="button"
+                  onclick="navigateTo('homePage')"
+                >
+                  Home
+                </li>
+                <li
+                  class="breadcrumb-item active text-primary-emphasis"
+                  type="button"
+                  onclick="navigateTo('articoliCard')"
+                >
+                  Articoli
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div class="row gap-5 gap-md-0">
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 border-0 d-flex justify-content-center"
+            >
+              <div
+                class="card rounded-2 d-flex mx-auto mb-2"
+                style="width: 21rem"
+                draggable="false"
+              >
+                <img
+                  src="./img/forest-2811846_1920.webp"
+                  class="card-img-top"
+                  alt="le foreste"
+                  draggable="false"
+                />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Le Foreste</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellat perferendis quae minima inventore, labore libero.
+                  </p>
+                  <button
+                    onclick="navigateTo('foreste')"
+                    class="btn btn-primary"
+                  >
+                    Leggiamo!
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-book"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 border-0 d-flex justify-content-center"
+            >
+              <div
+                class="card rounded-2 d-flex mx-auto mb-2"
+                style="width: 21rem"
+                draggable="false"
+              >
+                <img
+                  src="./img/oceans.webp"
+                  class="card-img-top"
+                  alt="Gli Oceani"
+                  draggable="false"
+                />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Gli Oceani</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellat perferendis quae minima inventore, labore libero.
+                  </p>
+                  <button
+                    onclick="navigateTo('oceani')"
+                    class="btn btn-primary"
+                  >
+                    Leggiamo!
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-book"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 border-0 d-flex justify-content-center"
+            >
+              <div
+                class="card rounded-2 d-flex mx-auto mb-2 img-fluid greyscale position-relative"
+                style="width: 21rem"
+                draggable="false"
+              >
+                <img
+                  src="./img/volcanoes.webp"
+                  class="card-img-top"
+                  alt="I Vulcani"
+                  draggable="false"
+                />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">I vulcani</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellat perferendis quae minima inventore, labore libero.
+                  </p>
+                  <span
+                    class="position-absolute top-0 end-0 badge rounded-pill bg-dark"
+                  >
+                    In Arrivo
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                  <button
+                    onclick="navigateTo('vulcani')"
+                    class="btn btn-primary"
+                    disabled
+                  >
+                    Leggiamo!
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-book"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 border-0 d-flex justify-content-center"
+            >
+              <div
+                class="card rounded-2 d-flex mx-auto mb-2 img-fluid greyscale position-relative"
+                style="width: 21rem"
+                draggable="false"
+              >
+                <img
+                  src="./img/citys.webp"
+                  class="card-img-top"
+                  alt="Le Città"
+                  draggable="false"
+                />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Le Città</h5>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repellat perferendis quae minima inventore, labore libero.
+                  </p>
+                  <span
+                    class="position-absolute top-0 end-0 badge rounded-pill bg-dark"
+                  >
+                    In Arrivo
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                  <button
+                    onclick="navigateTo('citta')"
+                    class="btn btn-primary"
+                    disabled
+                  >
+                    Leggiamo!
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-book"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <button
+        id="torna-su"
+        onclick="handleScrollTop()"
+        class="d-none z-1 opacity-75 p-4 bg-primary text-white d-flex justify-center items-center position-fixed bottom-0 end-0 rounded-circle"
+      >
+        <!-- quando inseriamo fixed su un elemento nel suo parente dobbiamo inserire relative altrimenti prende solo il body -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="currentColor"
+          class="bi bi-airplane-engines"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 0c-.787 0-1.292.592-1.572 1.151A4.35 4.35 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0M7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1s.458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7z"
+          />
+        </svg>
+      </button>
+      <section id="pagina-foreste" class="d-none bg-success bg-opacity-25">
+        <div class="d-flex justify-content-center flex-column">
+          <div class="hero position-relative">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center">
+                <li
+                  class="breadcrumb-item"
+                  type="button"
+                  onclick="navigateTo('homePage')"
+                >
+                  Home
+                </li>
+                <li
+                  class="breadcrumb-item"
+                  type="button"
+                  onclick="navigateTo('articoliCard')"
+                >
+                  Articoli
+                </li>
+                <li
+                  class="breadcrumb-item active text-primary-emphasis"
+                  aria-current="page"
+                  type="button"
+                  onclick="navigateTo('foreste')"
+                >
+                  Foreste
+                </li>
+                <li
+                  class="breadcrumb-item"
+                  aria-current="page"
+                  type="button"
+                  onclick="navigateTo('oceani')"
+                >
+                  Oceani
+                </li>
+              </ol>
+            </nav>
+            <figure class="figure m-0">
+              <img
+                src="./img/flowers.webp"
+                class="figure-img img-fluid rounded"
+                alt="flowers.webp"
+                style="object-fit: cover; height: 100vh; width: 100vw"
+              />
+              <figcaption class="figure-caption text-end">
+                Image by <strong>Ylanite Koppens</strong>from <u>Pixabay</u>
+              </figcaption>
+            </figure>
+
+            <div
+              class="alert alert-success border-success mx-auto position-absolute start-0 top-50 translate-middle-y w-50 d-flex align-items-center justify-content-center flex-column bg-transparent"
+              role="alert"
+            >
+              <h5 class="text-center text-white">Disclaimer:</h5>
+              <p>
+                Ciò che vedrai è costruito a solo scopo rappresentativo del
+                sito; il contenuto è generato dall'intelligenza artificiale, non
+                mi assumo nessuna responsabilità di un uso improprio o di errori
+                nelle informazioni riportate di seguito! <br />
+                Consiglio sempre di approfondire e verificare su fonti ufficiali
+                ciò che trovate scritto nel web.
+              </p>
+            </div>
+          </div>
+
+          <div aria-labelledby="forests-overview">
+            <h2 id="forests-overview" class="text-center">
+              Panoramica delle Foreste
+            </h2>
+            <p class="text-center">
+              Le foreste coprono circa il <b>31%</b> della superficie terrestre
+              e sono <u>fondamentali per la vita sul nostro pianeta</u>. Esse
+              forniscono habitat, risorse e svolgono un ruolo cruciale nel
+              bilancio del carbonio.
+            </p>
+          </div>
+
+          <div class="d-flex" aria-labelledby="tropical-forests">
+            <figure class="figure m-0">
+              <img
+                src="./img/forest-tropical.webp"
+                class="figure-img img-fluid rounded"
+                alt="forest-tropical.webp"
+                style="object-fit: cover; height: 100vh; width: 100vw"
+              />
+              <figcaption class="figure-caption text-start mb-3">
+                Image by <strong>Ylanite Koppens</strong>from
+                <u>Pixabay</u>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="container mb-5">
+            <div class="row position-relative">
+              <div class="col-12 d-flex justify-content-center">
+                <div class="card" style="width: 75vw">
+                  <div class="card-body">
+                    <h4 class="card-title text-center">Foreste Tropicali</h4>
+                    <p class="card-text">
+                      Le foreste tropicali, come l'Amazzonia e il Bacino del
+                      Congo, sono noti per la loro incredibile biodiversità.
+                      Queste foreste sono il
+                      <b>casa di oltre il 50%</b> delle specie vegetali e
+                      animali del mondo.
+                    </p>
+
+                    <h5 class="text-center">Peculiarità</h5>
+                    <ul class="card-text text-center list-unstyled">
+                      <li>Clima caldo e umido tutto l'anno.</li>
+                      <li>Altezza degli alberi fino a <b>60 metri</b>.</li>
+                    </ul>
+
+                    <h6>Impatto Ambientale</h6>
+                    <p>
+                      Le foreste tropicali sono cruciali per l'assorbimento di
+                      CO<sub>2</sub>, contribuendo a mitigare il cambiamento
+                      climatico. La deforestazione in queste aree può liberare
+                      enormi quantità di carbonio nell'atmosfera.
+                    </p>
+                    <a
+                      href="https://it.wikipedia.org/wiki/Foresta"
+                      class="card-link text-secondary d-flex justify-content-end"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      title="Verrai reindirizzato sulla pagina esterna di Wikipedia"
+                      >per approfondire..</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="container d-flex flex-column justify-content-center p-5"
+            aria-labelledby="temperate-forests"
+          >
+            <div
+              class="row gap-5 gap-md-0 justify-content-between align-items-center"
+            >
+              <div class="col-12 col-md-4">
+                <div class="card" style="width: 20rem">
+                  <img
+                    src="./img/canada-trees.webp"
+                    class="card-img-top"
+                    alt="canada-trees.webp"
+                  />
+                  <div class="card-body">
+                    <p class="card-text">
+                      Image by <strong>Jaime Reimer</strong> from Pixabay
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <div class="card" style="width: 20rem">
+                  <div class="card-body">
+                    <h2 class="card-title">Foreste Temperate</h2>
+                    <p>
+                      Le foreste temperate, presenti in luoghi come il Nord
+                      America e l'Europa, sono caratterizzate da stagioni
+                      distinte e un'ampia varietà di specie arboree.
+                    </p>
+                    <h3>Peculiarità</h3>
+                    <ul>
+                      <li>Alberi decidui, come querce e faggi.</li>
+                      <li>
+                        Temperature che variano significativamente tra estati
+                        calde e inverni freddi.
+                      </li>
+                    </ul>
+                    <h3>Impatto Ambientale</h3>
+                    <p>
+                      Queste foreste svolgono un ruolo importante nel mantenere
+                      la salute del suolo e nella biodiversità, ma sono
+                      minacciate dalla urbanizzazione e dall'agricoltura
+                      intensiva.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pagina-oceani" class="d-none oceano">
+        <div class="d-flex justify-content-center flex-column">
+          <div class="hero position-relative">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center">
+                <li
+                  class="breadcrumb-item"
+                  type="button"
+                  onclick="navigateTo('homePage')"
+                >
+                  Home
+                </li>
+                <li
+                  class="breadcrumb-item"
+                  type="button"
+                  onclick="navigateTo('articoliCard')"
+                >
+                  Articoli
+                </li>
+                <li
+                  class="breadcrumb-item"
+                  aria-current="page"
+                  type="button"
+                  onclick="navigateTo('foreste')"
+                >
+                  Foreste
+                </li>
+                <li
+                  class="breadcrumb-item active text-primary-emphasis"
+                  aria-current="page"
+                  type="button"
+                  onclick="navigateTo('oceani')"
+                >
+                  Oceani
+                </li>
+              </ol>
+            </nav>
+            <figure class="figure m-0">
+              <img
+                src="./img/beach-1867590_1920.webp"
+                class="figure-img img-fluid rounded"
+                alt="beach.webp"
+                style="object-fit: cover; height: 100vh; width: 100vw"
+              />
+              <figcaption class="figure-caption text-end">
+                Image by <strong>Pexels</strong> from <u>Pixabay</u>
+              </figcaption>
+            </figure>
+
+            <div
+              class="alert alert-success border-success mx-auto position-absolute start-0 top-50 translate-middle-y w-50 d-flex align-items-center justify-content-center flex-column bg-transparent"
+              role="alert"
+            >
+              <h5 class="text-center text-white">Disclaimer:</h5>
+              <p>
+                Ciò che vedrai è costruito a solo scopo rappresentativo del
+                sito; il contenuto è generato dall'intelligenza artificiale, non
+                mi assumo nessuna responsabilità di un uso improprio o di errori
+                nelle informazioni riportate di seguito! <br />
+                Consiglio sempre di approfondire e verificare su fonti ufficiali
+                ciò che trovate scritto nel web.
+              </p>
+            </div>
+          </div>
+
+          <div aria-labelledby="oceani-overview">
+            <h2 class="text-center">Oceani Mondiali e Impatto Ambientale</h2>
+            <p class="text-center">
+              Esplora le meraviglie degli oceani e il loro stato attuale
+            </p>
+          </div>
+
+          <div class="d-flex" aria-labelledby="tropical-forests">
+            <figure class="figure m-0">
+              <img
+                src="./img/coast-6310250_1920.webp"
+                class="figure-img img-fluid rounded"
+                alt="forest-tropical.webp"
+                style="object-fit: cover; height: 100vh; width: 100vw"
+              />
+              <figcaption class="figure-caption text-start mb-3">
+                Image by <strong> Kanenori</strong> from
+                <u>Pixabay</u>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="container mt-5">
+            <article>
+              <h2 class="text-center text-decoration-underline">
+                Principali Oceani
+              </h2>
+              <div class="row">
+                <div class="col-md-4 oceano text-start">
+                  <h3>Oceano Pacifico</h3>
+                  <p>
+                    L'Oceano Pacifico è il più grande e profondo oceano del
+                    mondo, conosciuto per la sua biodiversità ricca.
+                  </p>
+                  <p>
+                    <strong>Impatto Ambientale:</strong> Inquinamento da
+                    plastica e cambiamento climatico minacciano la vita marina.
+                  </p>
+                </div>
+                <div class="col-md-4 oceano text-center">
+                  <h3>Oceano Atlantico</h3>
+                  <p>
+                    L'Oceano Atlantico è il secondo oceano più grande,
+                    importante per il commercio internazionale e la fauna
+                    selvatica.
+                  </p>
+                  <p>
+                    <strong>Impatto Ambientale:</strong> Eccessivo sfruttamento
+                    delle risorse e inquinamento sono gravi problematiche.
+                  </p>
+                </div>
+                <div class="col-md-4 oceano text-end">
+                  <h3>Oceano Indiano</h3>
+                  <p>
+                    L'Oceano Indiano è noto per le sue acque calde e i numerosi
+                    arcipelaghi. Ha una biodiversità unica.
+                  </p>
+                  <p>
+                    <strong>Impatto Ambientale:</strong> Il riscaldamento
+                    globale sta cambiando i suoi ecosistemi.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="mt-5">
+            <h2 class="text-center">Focus sull'Impatto Ambientale</h2>
+            <p>
+              Gli oceani coprono oltre il <strong>70%</strong> della superficie
+              terrestre e sono fondamentali per la vita sul nostro pianeta.
+              Tuttavia, l'inquinamento, il riscaldamento globale e la pesca
+              eccessiva minacciano la salute degli oceani.
+            </p>
+            <ul class="text-center list-unstyled">
+              <li>
+                <strong>Inquinamento da Plastica:</strong> milioni di tonnellate
+                di plastica finiscono negli oceani ogni anno, danneggiando
+                l'ambiente marino.
+              </li>
+              <li>
+                <strong>Cambiamento Climatico:</strong> alterazioni della
+                temperatura e dell'acidità delle acque stanno influenzando gli
+                ecosistemi marini.
+              </li>
+              <li>
+                <strong>Sfruttamento delle Risorse:</strong> la pesca eccessiva
+                ha portato a un collasso delle popolazioni ittiche in molte
+                aree.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="pagina-suDiNoi"
+        class="d-none d-flex align-items-center flex-column"
+      >
+        <div class="container p-2 mt-5">
+          <div class="row justify-content-center">
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 border-0 d-flex justify-content-center"
+            >
+              <div class="card mx-auto" style="width: 20rem">
+                <img
+                  src="./img/woman-2377742_1920.webp"
+                  class="card-img-top"
+                  alt="Khusen, social media manager"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Khusen Rustamov</h5>
+                  <p class="card-text">
+                    Image by <b>Khusen Rustamov </b> from Pixabay <br />
+                    La nostra Social Media Manager Khusen! Nata a Moscow il
+                    23/04/1980, laureata in comunicazione all'università di
+                    Moscow e parte del team dal 1/08/2025
+                  </p>
+                  <a
+                    href="#contattaci"
+                    type="button"
+                    onclick="navigateTo('contattaci')"
+                    class="btn btn-primary"
+                    >Contattami!</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 border-0 d-flex justify-content-center"
+            >
+              <div class="card mx-auto" style="width: 20rem">
+                <img
+                  src="./img/asian-woman.webp"
+                  class="card-img-top"
+                  alt="Tien, Content Creator"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Tien ttm</h5>
+                  <p class="card-text">
+                    Image by <b>Tien ttm</b> from Pixabay <br />
+                    La nostra Content Creator Tien! Nata a Pechino il
+                    23/06/1985, laureata in arte e design all'università di
+                    Pechino e parte del team dal 5/04/2025
+                  </p>
+                  <a
+                    href="#contattaci"
+                    type="button"
+                    onclick="navigateTo('contattaci')"
+                    class="btn btn-primary"
+                    >Contattami!</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 border-0 d-flex justify-content-center"
+            >
+              <div class="card mx-auto" style="width: 20rem">
+                <img
+                  src="./img/man-portrait.webp"
+                  class="card-img-top"
+                  alt="Enrich, fotografo"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Enrich Kennedy</h5>
+                  <p class="card-text">
+                    Image by <b> Susanne </b> from Pixabay <br />
+                    Il nostro fotografo di fiducia, Enrich Kennedy! Nato a
+                    Dublino il 12/11/1990, laureato all'accademia delle belle
+                    arti di Roma e parte del team dal 1/09/2025
+                  </p>
+                  <a
+                    href="#contattaci"
+                    type="button"
+                    onclick="navigateTo('contattaci')"
+                    class="btn btn-primary"
+                    >Contattami!</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 border-0 d-flex justify-content-center"
+            >
+              <div class="card mx-auto" style="width: 20rem">
+                <img
+                  src="./img/man-on-sea.webp"
+                  class="card-img-top"
+                  alt="jeremy, full stack developer"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Lukas Rychvalsky</h5>
+                  <p class="card-text">
+                    Image by <b> Lukas Rychvalsky</b> from Pixabay <br />
+                    Il nostro Full Stack Developer Lukas! Nato a Sebastopoli il
+                    15/02/1995, laureato in Informatica all'università di Moskow
+                    e parte del team dal 12/10/2025
+                  </p>
+                  <a
+                    href="#contattaci"
+                    type="button"
+                    onclick="navigateTo('contattaci')"
+                    class="btn btn-primary"
+                    >Contattami!</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="pagina-contattaci"
+        class="d-none d-flex flex-column justify-content-center"
+        style="height: 85vh"
+      >
+        <!-- TODO: qui va fatto un form di invio messaggio con alert-success finale di invio avvenuto -->
+        <div class="container">
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                placeholder="Federico"
+                minlength="3"
+                required
+              />
+              <div class="valid-feedback">Bel Nome!</div>
+              <div class="invalid-feedback">inserisci almeno 3 lettere</div>
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom02" class="form-label">Cognome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom02"
+                placeholder="Rossi"
+                minlength="3"
+                required
+              />
+              <div class="valid-feedback">Bel Cognome!</div>
+              <div class="invalid-feedback">inserisci almeno 3 lettere</div>
+            </div>
+            <div class="col-12 mb-3">
+              <label for="validationTextarea" class="form-label"
+                >Come possiamo aiutarti?</label
+              >
+              <textarea
+                class="form-control"
+                id="validationTextarea"
+                placeholder="Dicci cosa ti passa per la testa!"
+                minlength="5"
+                required
+              ></textarea>
+              <div class="invalid-feedback">
+                Per favore, esprimi il tuo pensiero con almeno 5 lettere
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-emoji-grin"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12.946 11.398A6.002 6.002 0 0 1 2.108 9.14c-.114-.595.426-1.068 1.028-.997C4.405 8.289 6.48 8.5 8 8.5s3.595-.21 4.864-.358c.602-.07 1.142.402 1.028.998a5.95 5.95 0 0 1-.946 2.258m-.078-2.25C11.588 9.295 9.539 9.5 8 9.5s-3.589-.205-4.868-.352c.11.468.286.91.517 1.317A37 37 0 0 0 8 10.75a37 37 0 0 0 4.351-.285c.231-.407.407-.85.517-1.317m-1.36 2.416c-1.02.1-2.255.186-3.508.186s-2.488-.086-3.507-.186A5 5 0 0 0 8 13a5 5 0 0 0 3.507-1.436ZM6.488 7c.114-.294.179-.636.179-1 0-1.105-.597-2-1.334-2C4.597 4 4 4.895 4 6c0 .364.065.706.178 1 .23-.598.662-1 1.155-1 .494 0 .925.402 1.155 1M12 6c0 .364-.065.706-.178 1-.23-.598-.662-1-1.155-1-.494 0-.925.402-1.155 1a2.8 2.8 0 0 1-.179-1c0-1.105.597-2 1.334-2C11.403 4 12 4.895 12 6"
+                  />
+                  <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                  required
+                />
+                <label class="form-check-label" for="invalidCheck">
+                  Per favore, accetta l'informativa per la privacy.
+                </label>
+                <div class="invalid-feedback">
+                  mi spiace, per proseguire devi accettare l'informativa, ne va
+                  dei tuoi diritti digitali
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-emoji-grin"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M12.946 11.398A6.002 6.002 0 0 1 2.108 9.14c-.114-.595.426-1.068 1.028-.997C4.405 8.289 6.48 8.5 8 8.5s3.595-.21 4.864-.358c.602-.07 1.142.402 1.028.998a5.95 5.95 0 0 1-.946 2.258m-.078-2.25C11.588 9.295 9.539 9.5 8 9.5s-3.589-.205-4.868-.352c.11.468.286.91.517 1.317A37 37 0 0 0 8 10.75a37 37 0 0 0 4.351-.285c.231-.407.407-.85.517-1.317m-1.36 2.416c-1.02.1-2.255.186-3.508.186s-2.488-.086-3.507-.186A5 5 0 0 0 8 13a5 5 0 0 0 3.507-1.436ZM6.488 7c.114-.294.179-.636.179-1 0-1.105-.597-2-1.334-2C4.597 4 4 4.895 4 6c0 .364.065.706.178 1 .23-.598.662-1 1.155-1 .494 0 .925.402 1.155 1M12 6c0 .364-.065.706-.178 1-.23-.598-.662-1-1.155-1-.494 0-.925.402-1.155 1a2.8 2.8 0 0 1-.179-1c0-1.105.597-2 1.334-2C11.403 4 12 4.895 12 6"
+                    />
+                    <path
+                      d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m0-1A7 7 0 1 1 8 1a7 7 0 0 1 0 14"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button id="liveAlertBtn" class="btn btn-primary" type="submit">
+                invio<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-send"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="text-light p-3" style="height: 15vh">
+      <div id="footer" class="container border-0">
+        <div class="row">
+          <div
+            class="d-flex flex-column align-items-center justify-content-center"
+          >
+            <h2
+              type="button"
+              onclick="navigateTo('homePage')"
+              aria-label="Vai alla homepage"
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  fill="currentColor"
+                  class="bi bi-globe-americas"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"
+                  />
+                </svg>
+              </span>
+              In Giro Per Il Mondo
+            </h2>
+            <div
+              class="col-12 md-6 lg-4 xl-3 border-0 d-flex justify-content-center"
+            >
+              <ul
+                class="flex-row list-group bg-transparent flex-wrap align-items-center align-content-center justify-content-center"
+              >
+                <li class="list-group-item border-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="bi bi-cc-circle"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.408 5.89c-.83 0-1.318.64-1.318 1.753v.742c0 1.108.479 1.727 1.318 1.727.69 0 1.138-.435 1.187-1.05h1.147v.114c-.058 1.147-1.029 1.938-2.343 1.938-1.612 0-2.518-1.028-2.518-2.729v-.747c0-1.7.914-2.75 2.518-2.75 1.319 0 2.29.812 2.343 1.999v.11H6.595c-.049-.638-.506-1.108-1.187-1.108Zm5.404 0c-.831 0-1.319.64-1.319 1.753v.742c0 1.108.48 1.727 1.319 1.727.69 0 1.138-.435 1.186-1.05h1.147v.114c-.057 1.147-1.028 1.938-2.342 1.938-1.613 0-2.518-1.028-2.518-2.729v-.747c0-1.7.914-2.75 2.518-2.75 1.318 0 2.29.812 2.342 1.999v.11h-1.147c-.048-.638-.505-1.108-1.186-1.108Z"
+                    />
+                  </svg>
+                  | 2025 In giro per il mondo
+                </li>
+                <li class="list-group-item border-0">
+                  <a
+                    href="mailto:loremipsum@mail.com"
+                    class="list-group-item border-0"
+                    >loremipsum@mail.com</a
+                  >
+                </li>
+                <li class="list-group-item border-0">
+                  <a
+                    href="https://www.tiktok.com/login?redirect_url=https%3A%2F%2Fwww.tiktok.com%2F&lang=en&enter_method=mandatory"
+                    class="list-group-item border-0"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-tiktok"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"
+                      /></svg
+                  ></a>
+                </li>
+                <li class="list-group-item border-0">
+                  <a
+                    href="https://web.whatsapp.com/"
+                    class="list-group-item border-0"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-whatsapp"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                      /></svg
+                  ></a>
+                </li>
+                <li class="list-group-item border-0">
+                  <a
+                    href="https://www.facebook.com/login.php/"
+                    class="list-group-item border-0"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-facebook"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                      /></svg
+                  ></a>
+                </li>
+                <li class="list-group-item border-0">
+                  <a
+                    href="https://mastodon.social/explore"
+                    class="list-group-item border-0"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-mastodon"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a4 4 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522q0-1.288.66-2.046c.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764q.662.757.661 2.046z"
+                      /></svg
+                  ></a>
+                </li>
+
+                <li class="list-group-item border-0">
+                  <a
+                    href="https://www.youtube.com/"
+                    class="list-group-item border-0"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-youtube"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"
+                      /></svg
+                  ></a>
+                </li>
+
+                <li class="list-group-item border-0">
+                  <a
+                    href="https://bsky.social/about"
+                    class="list-group-item border-0"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-bluesky"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3.468 1.948C5.303 3.325 7.276 6.118 8 7.616c.725-1.498 2.698-4.29 4.532-5.668C13.855.955 16 .186 16 2.632c0 .489-.28 4.105-.444 4.692-.572 2.04-2.653 2.561-4.504 2.246 3.236.551 4.06 2.375 2.281 4.2-3.376 3.464-4.852-.87-5.23-1.98-.07-.204-.103-.3-.103-.218 0-.081-.033.014-.102.218-.379 1.11-1.855 5.444-5.231 1.98-1.778-1.825-.955-3.65 2.28-4.2-1.85.315-3.932-.205-4.503-2.246C.28 6.737 0 3.12 0 2.632 0 .186 2.145.955 3.468 1.948"
+                      /></svg
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
