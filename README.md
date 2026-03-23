@@ -7,7 +7,8 @@ Il progetto è stato realizzato per mettere alla prova le mie competenze su **Bo
 
 ### Tech Stack
   HTML5: semantica seo friendly e accessibile.
-  CSS3 & Bootstrap5: personalizzazione di elementi e utilizzo di componenti responsive per approccio mobile first
+  CSS3 & Bootstrap5: personalizzazione di elementi e utilizzo di componenti responsive per approccio mobile first.
+  
   JavaScript (ES6): 
   - Gestione della navigazione SPA tramite manipolazione delle classi (`d-none`) e dell'hash URL.
   - Ascolto degli eventi (`scroll`, `hashchange`, `submit`).
