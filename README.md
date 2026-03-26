@@ -24,6 +24,15 @@ Il progetto è stato realizzato per mettere alla prova le mie competenze su **Bo
   4. Responsive Design: Testato su mobile, tablet e desktop grazie alle classi utility di Bootstrap 5.
   5. Dark Mode di default: Impostazione di base del tema scuro tramite attributi `data-bs-theme`, per agevolare la lettura e ridurre l'affaticamento oculare.
 
+### Obiettivo 
+
+Creare un Web-Blog in linea con i requisiti di accessibilità e dello sviluppo web odierno
+
+- Navigazione fluida senza interruzioni (SPA Simulation): Il ricaricamento completo della pagina ad ogni click interromperebbe l'esperienza di lettura così ho implementato un router personalizzato in Vanilla JavaScript che manipola l'hash URL e le classi di visibilità (d-none).
+- Gestione avanzata dell'interattività e del feedback utente: I form statici offrono feedback solo dopo il ricaricamento della pagina, grazie ai componenti bootstrap ho implementato un sistema di validazione e feedback visivo immediato (colori semantiche) e generazione dinamica di elementi DOM (alert di successo)  in tempo reale.
+- Ottimizzazione dell'usabilità in pagine lunghe (UX Writing & Navigation): Nei blog o siti con molti contenuti, l'utente perde facilmente il punto di partenza dopo aver superato la metà della pgina così ho implementato una funziona "Scroll-to-Top" Intelligente che monitora la posizione `window.scrollY`, mostrando il pulsante di ritorno solo quando necessario.
+- Accessibilità e Comfort Visivo (Dark Mode Native): La lettura prolungata su schermi luminosi causa affaticamento oculare così ho sfruttato funzionalità native di Bootstrap 5.3+ tramite l'attributo `data-bs-theme`, impostando una Dark Mode di default che garantisce contrasto ottimale e riduzione dello sforzo visivo sin dal primo caricamento.
+- Sviluppo Mobile-First: utilizzo delle utility bootstrap5 pder garantire una responsività nativa su mobile, tablet e desktop
   
 ### Live demo:
    - [greensync.altervista.org](https://greensync.altervista.org)
