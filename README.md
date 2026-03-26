@@ -18,9 +18,7 @@ Il progetto è stato realizzato per mettere alla prova le mie competenze su **Bo
 ### Funzionalità Implementate
   1. Navigazione SPA: Il sito non ricarica mai la pagina. La navigazione avviente tramite la funzione `navigateTo()` che gestisce il cambio vista nascondendo/mostrando le sezioni e aggiornando l'URL hash.
   2. Scroll-to-Top Intelligente: Un pulsante "Torna su" appare dinamicamente solo quando l'utente scorre oltre una certa percentuale della pagina (calcolata tramite `window.scrollY`).
-  3. Form Interattivo:
-    - Feedback visivo (verde/rosso) in tempo reale.
-    - Messaggio di successo generato dinamicamente dopo l'invio, senza ricaricare la pagina.
+  3. Form Interattivo: Feedback visivo (verde/rosso) in tempo reale e messaggio di successo generato dinamicamente dopo l'invio, senza ricaricare la pagina.
   4. Responsive Design: Testato su mobile, tablet e desktop grazie alle classi utility di Bootstrap 5.
   5. Dark Mode di default: Impostazione di base del tema scuro tramite attributi `data-bs-theme`, per agevolare la lettura e ridurre l'affaticamento oculare.
 
